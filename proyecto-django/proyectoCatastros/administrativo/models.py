@@ -6,10 +6,10 @@ class Barrio(models.Model):
     siglas = models.CharField("Siglas", max_length=20)
 
     def __str__(self):
-        return "%s - %s" % {
+        return "%s - %s" % (
             self.nombre,
             self.siglas
-        }
+        )
 
 class Persona(models.Model):
     nombre = models.CharField(max_length=30)
@@ -18,12 +18,12 @@ class Persona(models.Model):
     correo = models.CharField(max_length=30)
 
     def __str__(self):
-        return "%s - %s - %s - %s" % {
+        return "%s - %s - %s - %s" % (
             self.nombre,
             self.apellido,
             self.cedula,
             self.correo
-        }
+        )
 
 class Casa(models.Model):
     propietario = models.ForeignKey(Persona, on_delete=models.CASCADE,
@@ -37,14 +37,14 @@ class Casa(models.Model):
     num_pisos = models.IntegerField("Número de pisos")
 
     def __str__(self):
-        return "Propietario: %s | Direccion: %s - valor: $%.2f | %s - cuartos: %d  - pisos:  %d " % {
+        return "Propietario: %s | Direccion: %s - valor: $%.2f | %s - cuartos: %d  - pisos:  %d " % (
             self.propietario,
             self.direccion,
             self.val_bien,
             self.color,
             self.num_cuartos,
             self.num_pisos
-        }
+        )
 
 class Departamento(models.Model):
     propietario = models.ForeignKey(Persona, on_delete=models.CASCADE,
@@ -57,10 +57,10 @@ class Departamento(models.Model):
     val_mensual = models.FloatField("Valor mensual de mantenimiento")
 
     def __str__(self):
-        return "Propietario: %s | Direccion: %s - Valor bien: $%.2f | %s - cuartos: %d  - Valor mensual:  %d " % {
+        return "Propietario: %s | Direccion: %s - Valor bien: $%.2f | %s - cuartos: %d  - Valor mensual:  %d " % (
             self.propietario,
             self.direccion,
             self.val_bien,
             self.num_cuartos,
             self.val_mensual
-        }
+        )

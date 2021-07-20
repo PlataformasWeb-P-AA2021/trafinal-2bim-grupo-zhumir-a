@@ -1,0 +1,53 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Listado de Casas
+{% endblock %}
+
+{% block content %}
+<h3>Listado de Casas</h3>
+<h6>Número de casas {{ numero_casas}}</h6>
+<button class="btn btn-dark"> <li style="list-style: none;"><a href="{% url 'crear_casa' %}">Agregar casa</a></li> </button>
+<br>
+<br>
+<section>
+  <table id="tabla_datos">
+
+    <thead>
+      <tr>
+        <th>Propietario</th>
+        <th>Dirección</th>
+        <th>Barrio</th>
+        <th>Valor de bien</th>
+        <th>Color</th>
+        <th>Número de cuartos</th>
+        <th>Número de pisos</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+
+    {% for c in casas %}
+    <tr>
+      <td> {{c.propietario}}</td>
+      <td> {{c.direccion}}</td>
+      <td> {{c.barrio}}</td>
+      <td> {{c.val_bien}}</td>
+      <td> {{c.color}}</td>
+      <td>{{c.num_cuartos}}</td>
+      <td>{{c.num_pisos}}</td>
+      <td> <a href= "{% url 'eliminar_casa' c.id %}"
+        onclick="return confirm('¿Está seguro de la eliminación?')" >
+        eliminar</a>
+        <a href="{% url 'editar_casa' c.id %}">editar</a>
+      </td>
+
+    </tr>
+    {% endfor %}
+  </table>
+</section>
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#tabla_datos').DataTable();
+  });
+</script>
+{% endblock %}

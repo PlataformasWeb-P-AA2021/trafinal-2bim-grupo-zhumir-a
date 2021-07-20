@@ -15,7 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls.conf import include
+from rest_framework import routers
+from administrativo import views
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
+router.register(r'casas', views.CasaViewSet)
+router.register(r'personas', views.PersonaViewSet)
+router.register(r'barrios', views.BarrioViewSet)
+router.register(r'departamentos', views.DepartamentoViewSet)
 
 urlpatterns = [
+    path('', include('administrativo.urls')),
+
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
+     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    
 ]
+

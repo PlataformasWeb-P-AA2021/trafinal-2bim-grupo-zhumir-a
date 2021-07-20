@@ -1,0 +1,96 @@
+
+/*CONTENIDO*/
+
+body {
+  /*background: #FEFEFD;*/
+  background: #FEFEFD;
+  padding: 30px;
+
+}
+
+/*ENVCABEZADO*/
+header{
+  border-left: 8px solid #167503;
+  border-bottom: 2px solid #167503;
+  background-color: #85c285;
+  padding:  0.8em;
+
+}
+
+/* Tabla y section que la contiene*/
+
+section {
+  width: 98%;
+}
+
+th, td {
+  padding: 15px;
+  border-bottom: 1px solid black;
+}
+thead{
+  background-color: #ccc097;
+  border-bottom: 3px solid rgb(66, 55, 38);
+}
+tr:hover {
+  background-color: #a59a7d;
+}
+tr:nth-child(even) {
+  background-color: #753b3b;
+}
+
+/*Botones*/
+ button a{
+   text-decoration: none;
+
+ }
+
+/*mENU*/
+nav.top_menu ul{
+  margin-top: 2em;
+}
+
+.top_menu ul
+{
+  list-style:none;
+  float:left;
+  padding: 5px;
+  width:95%;
+}
+
+.top_menu ul li
+{
+  float:left;
+  margin-right:10px;
+  margin-bottom:5px;
+  text: #FFF;
+
+
+}
+.top_menu ul li a{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+
+}
+
+footer{
+  padding: 1em;
+  margin-left: 2em;
+  width: 96%;
+  background: #e4e4e4;
+  color: rgb(82, 80, 80);
+}
+
+.btn li a{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  
+
+}
+/**/
+.contenido{
+  margin: 2em;
+}
+/**/
+.tituloLogin{
+  margin: 1em;
+}

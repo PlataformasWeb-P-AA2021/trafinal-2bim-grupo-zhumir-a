@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Barrios</title>
+  </head>
+  <body>
+    <h5>Listado de barrios: Número {{numero}}</h5>
+
+    {% for b in datos %}
+
+    <ol>
+      <li><b>Nombre: </b>{{b['nombre']}}</li>
+      <li><b>Siglas: </b>{{b['siglas']}}</li>
+  
+    </ol>
+    <hr>
+    {% endfor%}
+  </body>
+</html>

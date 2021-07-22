@@ -13,7 +13,6 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
 
-
 # importar las clases de models.py
 from administrativo.models import *
 
@@ -143,7 +142,7 @@ def ingreso(request):
         form = AuthenticationForm()
 
     informacion_template = {'form': form}
-    return render(request, 'registration/login.html', informacion_template)
+    return render(request, 'Registration/login.html', informacion_template)
 
 def logout_view(request):
     logout(request)

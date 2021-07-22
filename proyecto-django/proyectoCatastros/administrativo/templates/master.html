@@ -4,31 +4,34 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     {% load static %}
+    <link rel="icon" href="{% static 'images/logo.png' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
-
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-
-    
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title>
       {% block title %}
+        Catastros | 
       {% endblock %}
     </title>
   </head>
+
   <body>
     <!-- paso 5-->
     {% load socialaccount %}
     {% load account %}
-  <header>
-
-    <h1>Aplicación Administración </h1>
-
-    <div class="">
+    <header>
+      <img src="{% static 'images/logo.png' %}" alt="My image" class="center">
+      <div id="headerDiv">
+          <h2>Aplicación Administración</h2>
+      </div>
+      <br>
+      <div class="">
         {% if messages %}
           <div class="messages">
             {% for message in messages %}
@@ -37,28 +40,27 @@
           </div>
         {% endif %}
       </div>
-    <nav class="top_menu">
-      <ul>
 
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         {% if user.is_authenticated %}
-          <li> <span class="nombre_usuario"> Bienvenido: {{user.username}} </span></li>
+          <a class="navbar-brand">| Bienvenido "{{user.username}}" |</a>        
         {% endif %}
-        <button class="btn btn-info"> <li><a href="{% url 'index' %}">Listado de Casas</a></li></button>
-        <button class="btn btn-success"><li><a href="{% url 'dept' %}">Listar departamentos</a></li></button>
-        
+        <a class="navbar-brand" href="{% url 'index' %}">Listado de Casas</a>
+        <a class="navbar-brand" href="{% url 'dept' %}">Listado de Departamentos</a>
         {% if user.is_authenticated %}
-        <button class="btn btn-primary"><li><a href="{% url 'logout_view' %}">salir</a></li></button>
+          <a class="navbar-brand" href="{% url 'index' %}">Añadir Persona</a>
+          <a class="navbar-brand" href="{% url 'index' %}">Añadir Barrio</a>
+          <a class="navbar-brand" href="{% url 'logout_view' %}"><u><b>Cerrar Sesión</b></u></a>
         {% else %}
-        <button class="btn btn-secondary"><li><a href="{% url 'login' %}">Ingresar</a></li></button>
-         
+          <a class="navbar-brand" href="{% url 'login' %}"><u><b>Iniciar Sesión</b></u</a>
         {% endif %}
-      </ul>
-    </nav>
-  </header>
-  <section class="contenido">
-      {% block content %}
-      {% endblock %}
-  </section>
+      </nav>
+    </header>
+
+    <section class="contenido">
+        {% block content %}
+        {% endblock %}
+    </section>
 
     <footer>
       <p>Loja-Ecuador</p>

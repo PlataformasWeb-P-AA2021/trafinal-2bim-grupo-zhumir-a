@@ -104,4 +104,4 @@ Podemos verificar que se enlazaron correctamente con el enlace `$ ls -l`
 
 14. Comprobamos su funcionalidad en el navegador
 
-![Prueba en Navegador](https://github.com/PlataformasWeb-P-AA2021/trafinal-2bim-grupo-zhumir-a/blob/main/publicacion/images/pasoFinal_Comprobacion.png.png)
+![Prueba en Navegador](https://github.com/PlataformasWeb-P-AA2021/trafinal-2bim-grupo-zhumir-a/blob/main/publicacion/images/pasoFinal_Comprobacion.png)

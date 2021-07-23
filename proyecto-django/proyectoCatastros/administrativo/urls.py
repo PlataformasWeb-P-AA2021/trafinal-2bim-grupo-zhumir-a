@@ -25,7 +25,25 @@ urlpatterns = [
         name='editar_departamento'),
     path('eliminar/departamento/<int:id>', views.eliminar_departamento,
         name='eliminar_departamento'),
-    
+
+    #personas
+    path('personas', views.personas,
+        name='personas'),
+    path('crear/persona', views.crear_persona,
+        name='crear_persona'),
+    path('editar_persona/<int:id>', views.editar_persona,
+        name='editar_persona'),
+    path('eliminar/persona/<int:id>', views.eliminar_persona,
+        name='eliminar_persona'),
+    #Barrios
+    path('barrios', views.barrios,
+        name='barrios'),
+    path('crear/barrio', views.crear_barrio,
+        name='crear_barrio'),
+    path('editar_barrio/<int:id>', views.editar_barrio,
+        name='editar_barrio'),
+    path('eliminar/barrio/<int:id>', views.eliminar_barrio,
+        name='eliminar_barrio'),
 
 
 

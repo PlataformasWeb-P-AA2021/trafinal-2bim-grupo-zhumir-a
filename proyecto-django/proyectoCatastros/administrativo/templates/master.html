@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     {% load static %}
-    <link rel="icon" href="{% static 'images/logo.png' %}">
+    <link rel="icon" href="{% static 'images/piso.png' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -26,7 +26,7 @@
     {% load socialaccount %}
     {% load account %}
     <header>
-      <img src="{% static 'images/logo.png' %}" alt="My image" class="center">
+      <img src="{% static 'images/piso.png' %}" alt="My image" class="center">
       <div id="headerDiv">
           <h2>Aplicación Administración</h2>
       </div>
@@ -45,14 +45,14 @@
         {% if user.is_authenticated %}
           <a class="navbar-brand">| Bienvenido "{{user.username}}" |</a>        
         {% endif %}
-        <a class="navbar-brand" href="{% url 'index' %}">Listado de Casas</a>
-        <a class="navbar-brand" href="{% url 'dept' %}">Listado de Departamentos</a>
+        <a class="navbar-brand" href="{% url 'index' %}">Casas</a>
+        <a class="navbar-brand" href="{% url 'dept' %}">Departamentos</a>
         {% if user.is_authenticated %}
-          <a class="navbar-brand" href="{% url 'index' %}">Añadir Persona</a>
-          <a class="navbar-brand" href="{% url 'index' %}">Añadir Barrio</a>
+          <a class="navbar-brand" href="{% url 'personas' %}">Personas</a>
+          <a class="navbar-brand" href="{% url 'barrios' %}">Barrios</a>
           <a class="navbar-brand" href="{% url 'logout_view' %}"><u><b>Cerrar Sesión</b></u></a>
         {% else %}
-          <a class="navbar-brand" href="{% url 'login' %}"><u><b>Iniciar Sesión</b></u</a>
+          <a class="navbar-brand" href="{% url 'login' %}"><u><b>Iniciar Sesión</b></u></a>
         {% endif %}
       </nav>
     </header>

@@ -29,7 +29,7 @@ def index(request):
     casas = Casa.objects.all()
    
     informacion_template = {'casas': casas, 'numero_casas': len(casas)}
-    return render(request, 'casas.html', informacion_template)
+    return render(request, 'index.html', informacion_template)
 
 # departamentos 
 
@@ -41,6 +41,7 @@ def dept(request):
     return render(request, 'dept.html', informacion_template)
 
 # Crear Casa
+@login_required(login_url='/entrando/login/')
 def crear_casa(request):
     """
     """
@@ -57,6 +58,7 @@ def crear_casa(request):
     return render(request, 'crearCasa.html', diccionario)
 
 @login_required(login_url='/entrando/login/')
+@permission_required('administrativo.change_casa', )
 def editar_casa(request, id):
     """
     """
@@ -74,6 +76,7 @@ def editar_casa(request, id):
     return render(request, 'editarCasa.html', diccionario)
 
 @login_required(login_url='/entrando/login/')
+@permission_required('administrativo.delete_casa', )
 def eliminar_casa(request, id):
     """
     """
@@ -92,7 +95,7 @@ def crear_departamento(request):
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save() # se guarda en la base de datos
-            return redirect(index)
+            return redirect(dept)
     else:
         formulario = DepartamentoForm()
     diccionario = {'formulario': formulario}
@@ -100,6 +103,7 @@ def crear_departamento(request):
     return render(request, 'crearDepartamento.html', diccionario)
 
 @login_required(login_url='/entrando/login/')
+@permission_required('administrativo.change_departamento', )
 def editar_departamento(request, id):
     """
     """
@@ -116,7 +120,8 @@ def editar_departamento(request, id):
 
     return render(request, 'editarDepartamento.html', diccionario)
 
-
+@login_required(login_url='/entrando/login/')
+@permission_required('administrativo.delete_departamento', )
 def eliminar_departamento(request, id):
     """
     """
@@ -148,6 +153,106 @@ def logout_view(request):
     logout(request)
     messages.info(request, "Has salido del sistema")
     return redirect(index)
+
+# PERSONAS
+def personas(request):
+    """
+        Listar los registros del modelo casas
+        obtenidos de la base de datos.
+    """
+    personas = Persona.objects.all()
+   
+    informacion_template = {'personas': personas}
+    return render(request, 'personas.html', informacion_template)
+
+def eliminar_persona(request, id):
+    """
+    """
+    persona = Persona.objects.get(pk=id)
+    persona.delete()
+    return redirect(index)
+
+def crear_persona(request):
+    """
+    """
+    if request.method=='POST':
+        formulario = PersonaForm(request.POST)
+        print(formulario.errors)
+        if formulario.is_valid():
+            formulario.save() # se guarda en la base de datos
+            return redirect(personas)
+    else:
+        formulario = PersonaForm()
+    diccionario = {'formulario': formulario}
+
+    return render(request, 'crearPersona.html', diccionario)
+
+def editar_persona(request, id):
+    """
+    """
+    persona = Persona.objects.get(pk=id)
+    if request.method=='POST':
+        formulario = PersonaForm(request.POST, instance=persona)
+        print(formulario.errors)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect(personas)
+    else:
+        formulario = PersonaForm(instance=persona)
+    diccionario = {'formulario': formulario}
+
+    return render(request, 'editarPersona.html', diccionario)
+
+#BARRIOS
+
+def barrios(request):
+    """
+        Listar los registros del modelo casas
+        obtenidos de la base de datos.
+    """
+    barrios = Barrio.objects.all()
+   
+    informacion_template = {'barrios': barrios}
+    return render(request, 'barrios.html', informacion_template)
+
+def eliminar_barrio(request, id):
+    """
+    """
+    barrio = Barrio.objects.get(pk=id)
+    barrio.delete()
+    return redirect(barrios)
+
+def crear_barrio(request):
+    """
+    """
+    if request.method=='POST':
+        formulario = BarrioForm(request.POST)
+        print(formulario.errors)
+        if formulario.is_valid():
+            formulario.save() # se guarda en la base de datos
+            return redirect(barrios)
+    else:
+        formulario = BarrioForm()
+    diccionario = {'formulario': formulario}
+
+    return render(request, 'crearBarrio.html', diccionario)
+
+def editar_barrio(request, id):
+    """
+    """
+    barrio = Barrio.objects.get(pk=id)
+    if request.method=='POST':
+        formulario = BarrioForm(request.POST, instance=barrio)
+        print(formulario.errors)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect(barrios)
+    else:
+        formulario = BarrioForm(instance=barrio)
+    diccionario = {'formulario': formulario}
+
+    return render(request, 'editarBarrio.html', diccionario)
+
 
 
 

@@ -1,14 +1,14 @@
 {% extends "master.html" %}
 
 {% block title %}
-  {{ block.super }} Departamentos 
+  {{block.super}} Departamentos 
 {% endblock %}
 
 {% block content %}
 <h3>Listado de Departamentos</h3>
 <h6>Número de departamentos {{ numero_departamentos}}</h6>
 <section class="">
-  <button class="btn btn-dark"><li style="list-style: none;"><a href="{% url 'crear_departamento' %}">Agregar departamento</a></li></button>
+  <button class="btn btn-primary"><a style="text-decoration: none; color: white;" href="{% url 'crear_departamento' %}">Agregar departamento</a></button>
   <br>
   <br>
   <table id="tabla_datos">
@@ -33,10 +33,11 @@
       <td> {{d.val_bien}}</td>
       <td>{{d.num_cuartos}}</td>
       <td>{{d.val_mensual}}</td>
-      <td><a href="{% url 'eliminar_departamento' d.id %}"
-        onclick="return confirm('¿Está seguro de la eliminación?')" >
-        eliminar</a>
-        <a href="{% url 'editar_departamento' d.id %}">editar</a>
+      <td>
+        <a href="{% url 'eliminar_departamento' d.id %}"
+        onclick="return confirm('¿Está seguro de la eliminación?')" ><i class="fas fa-trash text-danger"></i>
+        </a>
+        <a href="{% url 'editar_departamento' d.id %}"><i class="fas fa-edit"></i></a>
       </td>
 
     </tr>

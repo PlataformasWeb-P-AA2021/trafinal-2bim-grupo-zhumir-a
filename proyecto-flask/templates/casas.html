@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block title %}
+        Listado de Casas
+{% endblock %}
+
+{% block content %}
+  <h5>Listado de casas- {{numero_casas}}</h5>
+  {% for c in datos %}
+  <ol>
+    <li><b>Propietario: </b>{{c['propietario']}}</li>
+    <li><b>Dirección: </b>{{c['direccion']}}</li>
+    <li><b>Barrio: </b>{{c['barrio']}}</li>
+    <li><b>Correo: </b>{{c['val_bien']}}</li>
+  </ol>
+  <hr>
+  {% endfor%}
+{% endblock %}

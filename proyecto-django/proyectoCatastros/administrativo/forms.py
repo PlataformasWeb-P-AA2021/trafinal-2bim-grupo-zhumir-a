@@ -43,8 +43,8 @@ class PersonaForm(ModelForm):
 
     def clean_correo(self):
         valor = self.cleaned_data['correo']
-        if "@" not in valor or "utpl.edu.ec" not in valor:
-            raise forms.ValidationError("Ingrese correo válido para la Universidad")
+        if "@" not in valor:
+            raise forms.ValidationError("Ingrese correo válido porfavor")
         return valor
 
 

@@ -1,0 +1,15 @@
+
+{% extends "index.html" %}
+{% block title %}
+       Personas
+{% endblock %}
+{% block content %}
+  <h5>Listado de Personas: Número {{numero}}</h5>
+  {% for p in datos %}
+    <ol>
+        <li><b>Nombre: </b>{{p['nombre']}}</li>
+        <li><b>Cedula: </b>{{p['cedula']}}</li>
+        <li><b>Correo: </b>{{p['correo']}}</li>
+    </ol>
+  {% endfor%}
+{% endblock %}

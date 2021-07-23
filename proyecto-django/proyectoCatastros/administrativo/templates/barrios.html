@@ -1,0 +1,44 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Listado de Barrios
+{% endblock %}
+
+{% block content %}
+<button class="btn btn-primary"> <a style="color:white; text-decoration:none;" href="{% url 'crear_barrio' %}">Agregar barrio</a></button>
+<br>
+<br>
+<section>
+<h3>Listado de barrios</h3>
+
+
+  <table id="tabla_datos">
+
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Siglas</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+
+    {% for b in barrios %}
+    <tr>
+      <td> {{b.nombre}}</td>
+      <td> {{b.siglas}}</td>
+      <td> <a href= "{% url 'eliminar_barrio' b.id %}"
+        onclick="return confirm('¿Está seguro de la eliminación?')" ><i class="fas fa-trash text-danger"></i>
+        </a>
+        <a href="{% url 'editar_barrio' b.id %}"><i class="fas fa-edit"></i></a>
+      </td>
+
+    </tr>
+    {% endfor %}
+  </table>
+</section>
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#tabla_datos').DataTable();
+  });
+</script>
+{% endblock %}

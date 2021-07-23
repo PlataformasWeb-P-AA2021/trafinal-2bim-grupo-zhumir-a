@@ -1,0 +1,16 @@
+
+{% extends "index.html" %}
+{% block title %}
+        Listado de Departamentos
+{% endblock %}
+{% block content %}
+  <h5>Listado de departamentos: Número {{numero}}</h5>
+  {% for e in datos %}
+  <ol>
+    <li><b>Propietario: </b>{{e['propietario']}}</li>
+    <li><b>Dirección: </b>{{e['direccion']}}</li>
+    <li><b>Valor Mensual: </b>{{e['val_mensual']}}</li>
+  </ol>
+  <hr>
+  {% endfor%}
+{% endblock %}

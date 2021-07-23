@@ -292,7 +292,7 @@ class PersonaViewSet(viewsets.ModelViewSet):
     `update` and `destroy` actions.
     """
     queryset = Persona.objects.all()
-    serializer_class = BarrioSerializer
+    serializer_class = PersonaSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 class CasaViewSet(viewsets.ModelViewSet):

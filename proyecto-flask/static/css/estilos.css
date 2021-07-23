@@ -1,0 +1,19 @@
+.center{
+    margin-top: 0.5em;
+    width: 100px; max-width:'10%'; display: block;
+      margin-left: auto;
+      margin-right: auto; 
+}
+#headerDiv{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(148, 153, 192);
+  }
+body{
+    margin: 2em;
+}
+section.contenido, footer{
+    margin: 3em;
+}

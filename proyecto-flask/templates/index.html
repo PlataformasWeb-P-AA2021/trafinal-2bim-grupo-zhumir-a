@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width" />
 
   
-    <link rel="icon" href="../../proyecto-django/proyectoCatastros/administrativo/static/images/piso.png">
-    <link rel="stylesheet" type="text/css" href="../../proyecto-django/proyectoCatastros/administrativo/static/css/estilos.css">
+    <link rel="icon" href="{{ url_for('static', filename='images/piso.png') }} ">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos.css') }} ">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -25,14 +25,14 @@
   <body>
 
     <header>
-      <img src="../../proyecto-django/proyectoCatastros/administrativo/static/images/piso.png" alt="My image" class="center">
-      <div id="headerDiv">
+      <img src="{{ url_for('static', filename='images/piso.png') }} "  class="center">
+      <div id="headerDiv" >
           <h2>Aplicación Administración</h2>
       </div>
       <br>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-          <a class="navbar-brand">| Bienvenido Bievenido, Grupo Zhumir-A!|</a>        
+          <a class="navbar-brand">| Bienvenido, Grupo Zhumir-A!|</a>        
       
         <a class="navbar-brand" href="http://127.0.0.1:5000/lascasas">Casas</a>
         <a class="navbar-brand" href="http://127.0.0.1:5000/losdepartamentos">Departamentos</a>
@@ -41,12 +41,9 @@
       </nav>
     </header>
 
-    <section class="contenido">
     {% block content %}
         
     {% endblock %}
-  
-    </section>
 
     <footer>
       <p>Loja-Ecuador</p>

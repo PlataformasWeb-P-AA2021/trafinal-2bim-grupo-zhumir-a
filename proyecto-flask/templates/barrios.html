@@ -4,12 +4,14 @@
           Barrios
   {% endblock %}
   {% block content %}
-    <h5>Listado de barrios: Número {{numero}}</h5>
-    {% for b in datos %}
-      <ol>
-        <li><b>Nombre: </b>{{b['nombre']}}</li>
-        <li><b>Siglas: </b>{{b['siglas']}}</li>
-      </ol>
-    <hr>
-    {% endfor%}
+    <section class="contenido">
+      <h5>Listado de barrios: Número {{numero}}</h5>
+      {% for b in datos %}
+        <ol>
+          <li><b>Nombre: </b>{{b['nombre']}}</li>
+          <li><b>Siglas: </b>{{b['siglas']}}</li>
+        </ol>
+      <hr>
+      {% endfor%}
+    </section>
   {% endblock %}

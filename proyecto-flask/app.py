@@ -7,7 +7,7 @@ app.run('127.0.0.1', port=5000)
 
 @app.route("/")
 def hello_world():
-    #return "<p>Bievenido, Grupo Zhumir-A!</p>"
+    #return "<p>Bienvenido, Grupo Zhumir-A!</p>"
     return render_template("index.html")
 
 @app.route("/lascasas")

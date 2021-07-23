@@ -4,14 +4,16 @@
 {% endblock %}
 
 {% block content %}
-  <h5>Listado de casas- {{numero_casas}}</h5>
-  {% for c in datos %}
-  <ol>
-    <li><b>Propietario: </b>{{c['propietario']}}</li>
-    <li><b>Dirección: </b>{{c['direccion']}}</li>
-    <li><b>Barrio: </b>{{c['barrio']}}</li>
-    <li><b>Correo: </b>{{c['val_bien']}}</li>
-  </ol>
-  <hr>
-  {% endfor%}
+  <section class="contenido">
+    <h5>Listado de casas- {{numero_casas}}</h5>
+    {% for c in casas %}
+    <ol>
+      <li><b>Propietario: </b>{{c['propietario']}}</li>
+      <li><b>Dirección: </b>{{c['direccion']}}</li>
+      <li><b>Barrio: </b>{{c['barrio']}}</li>
+      <li><b>Correo: </b>{{c['val_bien']}}</li>
+    </ol>
+    <hr>
+    {% endfor%}
+  </section>
 {% endblock %}

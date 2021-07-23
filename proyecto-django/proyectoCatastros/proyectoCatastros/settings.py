@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-n1$gqzv1=x0om04i*zbxgp*e=f-bs+jqo+bf)0dlvybcwiu!-e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1"]
 
 
 # Application definition
@@ -39,25 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # agregar apps para Auth - paso 1
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
     #
     'administrativo',
     'rest_framework',
     'corsheaders',
 ]
-# agregar apps para Auth - paso 2
-AUTHENTICATION_BACKENDS = (
-    "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
-)
-
-
-# agregar apps para Auth - paso 3
-ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -143,7 +129,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/',
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/home/castle/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -152,9 +140,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # LOGOUT_REDIRECT_URL = '/' # new
-
-# agregar apps para Auth - paso 4
-LOGIN_REDIRECT_URL = reverse_lazy('index')
 
 # agregar información para
 REST_FRAMEWORK = {

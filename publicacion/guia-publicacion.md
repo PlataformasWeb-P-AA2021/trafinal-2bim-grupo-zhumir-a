@@ -11,7 +11,7 @@ Desde el CLI:
 
 `$ sudo apt install nginx`
 
-![Instalación Nginx](../images/paso1_instalarNginx.png)
+![Instalación Nginx](https://github.com/PlataformasWeb-P-AA2021/trafinal-2bim-grupo-zhumir-a/blob/main/publicacion/images/paso1_instalar%20Nginx.png)
 
 2. Instalar el entorno virtual para Python
 
